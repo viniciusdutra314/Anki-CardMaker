@@ -12,7 +12,7 @@ Create one note and generate up to *3* different cards! Flash cards for passive/
 
 
 # Installation
-The most reliable way of installing a template on anki is importing a deck with cards created using the template, in order to do that the we gonna run a Google Colab script that will generate the deck  for us, please click this link and follow the inscrutions
+The most reliable way of installing a template on anki is importing a deck with cards created using the template, in order to do that the we gonna run a Google Colab script that will generate the deck  for us, please click this [link](https://colab.research.google.com/github/viniciusdutra314/Anki-CardMaker/blob/main/AnkiCardMaker.ipynb#scrollTo=4PlW-rYmGAWG) and follow the inscrutions
 
 
 (if you're a developer you can run the create_template.py by yourself)
