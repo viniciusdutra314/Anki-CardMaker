@@ -35,6 +35,7 @@ def create_dummy_deck(mother_tongue :str ,target_lang :str ,
             }
         """
     cardtypes=[]
+
     if cardtypes_bools[0]: cardtypes.append("Passive")
     if cardtypes_bools[1]: cardtypes.append("Active")
     if cardtypes_bools[2]: cardtypes.append("Writing")
@@ -87,5 +88,22 @@ def create_dummy_deck(mother_tongue :str ,target_lang :str ,
         "dummy","/ˈdʌm·i/"]
     )
     dummy_deck.add_note(dummy_note)
-    genanki.Package(dummy_deck).write_to_file("exemplo.apkg")
-    
+    genanki.Package(dummy_deck).write_to_file(f"{template_name}.apkg")
+
+if __name__=="__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--mother_tongue', type=str,required=True)
+    parser.add_argument('--target_lang',type=str,required=True)
+    parser.add_argument("--cardtypes_dir",type=str,required=True)
+    parser.add_argument("--template_name",type=str,required=True)
+    parser.add_argument("--highlight_color",type=str,default="red")
+    parser.add_argument("--cardtypes_bools",type=str)
+    parser.add_argument("--dictionary",type=str,default="reverso")
+    parser.add_argument("--additional_voices",type=str,default="")
+
+    args = parser.parse_args()
+    cardtypes_bools=[x=="True" for x in args.cardtypes_bools.split()] 
+    create_dummy_deck(args.mother_tongue,args.target_lang,args.highlight_color,
+                    cardtypes_bools,args.cardtypes_dir,args.template_name,
+                    args.dictionary,args.additional_voices)
