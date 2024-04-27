@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "anki-language-learning-templates"
+version = "0.1.0"
+description = ""
+authors = ["viniciusdutra314 <dutravinisousa2@usp.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+genanki = "^0.13.1"
+langcodes = {extras = ["data"], version = "^3.4.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+blue = "^0.9.1"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
