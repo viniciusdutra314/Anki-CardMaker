@@ -1,6 +1,14 @@
-# Showcase
+# Main features
 
-### On the fly:
+- **Cross-platform** : All the magic is done with anki templates which is a native feature for Anki on Windows/Mac/Linux and on the mobile versions of Android/iOS
+
+- **Generate multiple cardtypes at once**:
+Create one note and generate up to *3* different cards! Flash cards for passive/active vocabulary and writing skills with automatic correction
+
+
+- **On the fly** audios: Audios are generated dynamically, without the need of storaging hundreads of megabytes of audios and support for different voices, accents and speeds
+
+- **Dictionary Search**: Words/phrases can be study on more deepth inside the cards themselves with a quick search on a custom dictionary (examples: Reverso, Cambridge Dictionary)
 
 
 # Installation
