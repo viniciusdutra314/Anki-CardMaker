@@ -1,0 +1,25 @@
+{{FrontSide}}
+
+<hr id="answer">
+
+{{#❓ Unknown word}}
+<a href="dictionary_link{{text:❓ Unknown word}}">🔎</a>
+
+<span style="color: highlight_color;"> <strong>{{text:❓ Unknown word}}</strong> </span>=
+{{/❓ Unknown word}} 
+
+{{^❓ Unknown word}}
+<a href="dictionary_link{{text:🔤 Phrase}}">🔎</a>
+{{/❓ Unknown word}}
+
+{{#🗣️ Pronunciation}}
+	({{text:🗣️ Pronunciation}})
+{{/🗣️ Pronunciation}}
+
+{{🔄 Translated phrase or word}}
+
+
+{{#❓ Unknown word}}
+	{{tts target_lang voices=your_voices:❓ Unknown word}}
+{{/❓ Unknown word}}
+
