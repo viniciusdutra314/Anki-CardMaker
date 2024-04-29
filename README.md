@@ -1,3 +1,94 @@
+Anki-CardMaker is an Anki template generator that will boost your language learning!
+
+I'm fascinated by learning languages, but I always thought that the process of creating cards was **tedious**. I never found a solution that is automatic enough to be practical yet not too automatic, which often leads to unreliable cards when using tools similar to Google Translate or ChatGPT.
+
+So, using my programming skills as a computational physics undergraduate, I could find a solution that:
+
+- **Generates multiple card types at once**: It creates one note and generates up to *3* different cards! Flashcards for passive/active vocabulary and writing skills with automatic correction.
+
+- **Cross-platform**: All the magic is done with Anki templates, which are a native feature for Anki on Windows/Mac/Linux, on mobile versions of Android/iOS, and even on your browser on [AnkiWeb](https://ankiweb.net/)
+
+#### Quick summary
+- [How to use it](#how-to-use-it)
+- [Installation](#installation)
+- [Voices and audio generation](#voices-and-audio-generation)
+
+
+## How to Use It
+
+There are 4 fields that can be filled, but only two of them are mandatory. Let's see how they work with a concrete example in Italian:
+
+![How to Use Anki-CardMaker](images/template_working/how_to_use_it.png)
+
+- 🔤 **Phrase**: (Io sono un ragazzo)  
+  The phrase that you're studying.
+
+- 🔄 **Translated phrase or word (young man)**  
+  If you have a specific word to study, put the translation here. If you're studying the whole phrase, put the entire translation of the phrase.
+
+- ❓ **Unknown word (optional) (Ragazzo)**  
+  If the goal of the note is to learn a specific word, insert the unknown word here.
+
+- 🗣️ **Pronunciation (optional) (/ra'ɡatːso/)**  
+  If you like to use the International Phonetic Alphabet (IPA) or some type of memorization technique, fill this field.
+
+**Dictionary Search**: Words/phrases can be studied in more depth inside the cards themselves! With just one click on 🔎, a quick search on a custom dictionary will be made (examples: Reverso, Cambridge Dictionary).
+
+<img src="images/template_working/reverso.png" alt="reverso search" width=400>
+
+
+### Passive Card
+
+**Ragazzo -> Young Man**
+
+**Front**: Just the phrase, If there's an unknown word, it will be highlighted with your selected color.
+
+![Passive Card Front](images/template_working/passive_front.png)
+
+**Front + Back**: The translation of the word/phrase with pronunciation.
+
+![Passive Card Front + Back](images/template_working/passive_card.png)
+
+### Active Card
+
+**Young Man -> Ragazzo**
+
+The active card is the exact opposite of the passive card. It will ask you to say "young man" in Italian. The reverse order can be very tricky but also extremely important for speaking the language fluently.
+
+**Front**:
+
+![Active Card Front](images/template_working/active_front.png)
+
+**Front + Back**:
+
+![Active Card Front + Back](images/template_working/active_back.png)
+
+### Writing
+
+**Type Young Man**
+
+An audio of the phrase will play. If you have an unknown word, a separate audio will also play.
+
+You should type the phrase or the word, depending on what you want to learn. An automatic checker will compare what you type with the correct spelling.
+
+- *Typing the whole phrase*
+  ![Typing the whole phrase](images/template_working/writing_back.png)
+
+- *Typing just the unknown word*
+  ![Typing just the unknown word](images/template_working/writing_back_oneword.png)
+
+### Word Matching
+One interesting feature is that if you accidentally commit a typo while typing an unknown word/phrase, the template has a little JavaScript code to check if the two fields are compatible. If not, it will insert an error message on the card. Then you can edit and type correctly.
+
+![Word Matching](images/template_working/not_matching_word.png)
+
+
+### Image Support
+
+Sometimes the meaning of a word/phrase is hard to put into words, but it's easily conveyed using images. This template also supports images in the 🔄 Translated phrase or word field.
+
+<img src="images/template_working/image_support.png">
+
 # Installation
 
 The most reliable way of installing a template on Anki is by importing a deck with cards created using the template. To do that, we're going to run a Google Colab script that will generate the deck for us. Please click this [link](https://colab.research.google.com/github/viniciusdutra314/Anki-CardMaker/blob/main/AnkiCardMaker.ipynb#scrollTo=4PlW-rYmGAWG) and follow the instructions.
@@ -6,22 +97,14 @@ The most reliable way of installing a template on Anki is by importing a deck wi
   <img src="images/colab.jpeg" alt="google_colab_logo" width=300>
 </a>
 
-# Main features
-
-- **Cross-platform**: All the magic is done with Anki templates, which is a native feature for Anki on Windows/Mac/Linux, on mobile versions of Android/iOS, and even on your browser on [AnkiWeb](https://ankiweb.net/).
-
-- **Generate multiple card types at once**: Create one note and generate up to *3* different cards! Flashcards for passive/active vocabulary and writing skills with automatic correction.
-
-- **On-the-fly audios**: Audios are generated dynamically, without the need for storing hundreds of megabytes of audios and support for different voices, accents, and speeds (~1 kilobyte per note).
-
-- **Dictionary Search**: Words/phrases can be studied in more depth inside the cards themselves! With just one click on 🔎, a quick search on a custom dictionary will be made (examples: Reverso, Cambridge Dictionary).
-
-<img src="images/template_working/reverso.png" alt="reverso search" width=400>
+An Anki deck called "Anki-CardMaker (test the audio)" will be imported with cards to test if the voices are working as they should. Now, you have imported the template to your Anki. To use it, go to Add and in the upper-left corner, find your template under Type.
 
 
 # Voices and audio generation:
 
-As explained in the [Main Features](#main-features) section, the audios are generated locally using the TTS (Text-To-Speech) of your device. You **need to have installed the TTS of the language that you will generate audios for**.
+
+**On-the-fly audios**: Audios are generated dynamically, without the need for storing hundreds of megabytes of audios and support for different voices, accents, and speeds (~1 kilobyte per note).
+The audios are generated locally using the TTS (Text-To-Speech) of your device, so you **need to have installed the TTS of the language that you will generate audios for**.
 
 The next subsections will be a quick tutorial on how to install TTS for an arbitrary language on Android, Windows, and Linux. The same ideas apply to Mac/iOS.
 
