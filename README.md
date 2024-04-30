@@ -11,7 +11,8 @@ So, using my programming skills as a computational physics undergraduate, I coul
 #### Quick summary
 - [How to use it](#how-to-use-it)
 - [Installation](#installation)
-- [Voices and audio generation](#voices-and-audio-generation)
+- [Voices and accents](#voices-and-accents)
+- [Migrate notes to a new template](#migrate-notes-to-a-new-template)
 
 
 ## How to Use It
@@ -100,7 +101,7 @@ The most reliable way of installing a template on Anki is by importing a deck wi
 An Anki deck called "Anki-CardMaker (test the audio)" will be imported with cards to test if the voices are working as they should. Now, you have imported the template to your Anki. To use it, go to Add and in the upper-left corner, find your template under Type.
 
 
-# Voices and audio generation:
+# Voices and accents:
 
 
 **On-the-fly audios**: Audios are generated dynamically, without the need for storing hundreds of megabytes of audios and support for different voices, accents, and speeds (~1 kilobyte per note).
@@ -140,3 +141,27 @@ Unfortunately, Linux doesn't come with TTS by default like the other operating s
 <img src="images/linux/awesome tts.png">
 
 The audios will continue to be generated on the fly, and the voices on your other devices will remain the same. The only issue is that **you need a WiFi connection** to display the cards on Linux.
+
+## Migrate notes to a new template
+
+Maybe you want to change the accent that you're learning, or the highlight color doesn't have great contrast with the background, or a new version of the template was released, and you want to update.
+
+#### Manual backup
+Before messing around with templates and notes, I highly recommend making a full backup of your Anki decks. You can go to Files/Export, select all the decks using the format .colpkg, and save them to a safe place.
+
+<img src="images/migrate_to_new_template/anki_backup.png" width=400>
+
+Manual backup is always recommended because **Anki has the right to delete your AnkiWeb account after 6 months of inactivity**. If you want to know more, please follow this [link](https://faqs.ankiweb.net/ankiweb-account-removal.html).
+
+#### Changing note type
+Go to **Browser**, and in the left corner, you will find your notes separated by note types. Select the note type (template) that you want to change.
+
+<img src="images/migrate_to_new_template/filters.png" width=300>
+
+Select all notes by pressing *Ctrl + A*, and then click *Change Note Type*.
+
+<img src="images/migrate_to_new_template/change_note_type.png" width=400>
+
+At the top of the widget, select the new template. As you can see, the *current* template is an old one with fields in Portuguese, from when I was learning how to create templates. Make sure that all fields will be passed correctly, and then press save. It's recommended that your current and new fields have the same number of card types.
+
+<img src="images/migrate_to_new_template/change_note_types_screen.png" width=400>
