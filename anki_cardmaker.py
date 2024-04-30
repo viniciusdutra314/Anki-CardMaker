@@ -9,16 +9,21 @@ def html_replacing(cardtype: str,config:dict) -> list[str]:
         htmls.append(html)
     return {"Front":htmls[0],"Back":htmls[1]}
 
-def sanitize_input(mother_tongue :str,target_lang:str,template_name:str) -> tuple[str,str,str]:
+def stop_execution(message:str) -> None:
+    from rich import print
+    from sys import exit
+    print(f"[bright_red](Error!) {message} [/bright_red]")
+    exit(1)
+
+def sanitize_input(mother_tongue :str,target_lang:str) -> tuple[str,str]:
     import langcodes
     mother_tongue=mother_tongue.strip().replace(" ","_")
     target_lang=target_lang.strip().replace(" ","_")
-    template_name=template_name.replace("_"," ")
-    assert len(mother_tongue)==5 , "Your language is not on the 4 character format"
-    assert langcodes.get(mother_tongue).is_valid() , "Your language langcode is not a valid code"
-    assert len(target_lang)==5 , "Your translation language is not on the 4 character format"
-    assert langcodes.get(target_lang).is_valid() , "Your translation language langcode is not a valid code"
-    return mother_tongue,target_lang,template_name
+    if not len(mother_tongue)==5: stop_execution("Your language is not on the 4 character format")
+    if not langcodes.get(mother_tongue).is_valid(): stop_execution("Your language langcode is not a valid code")
+    if not len(target_lang)==5 : stop_execution("Your translation language is not on the 4 character format")
+    if not langcodes.get(target_lang).is_valid(): stop_execution("Your translation language langcode is not a valid code")
+    return mother_tongue,target_lang
 
 
 def generate_dictionary_link(dictionary:str,target_lang_fullname:str,
@@ -36,7 +41,7 @@ def create_dummy_deck(mother_tongue :str ,target_lang :str ,
     import langcodes
     import genanki
     import random
-    sanitize_input(mother_tongue,target_lang,template_name)
+    
 
     LINUX_SUPPORT="AwesomeTTS"
     CSS=""".card {
@@ -52,7 +57,7 @@ def create_dummy_deck(mother_tongue :str ,target_lang :str ,
     if cardtypes_bools[0]: cardtypes.append("Passive")
     if cardtypes_bools[1]: cardtypes.append("Active")
     if cardtypes_bools[2]: cardtypes.append("Writing")
-    assert len(cardtypes)!=0 , "You have not selected any cardtype"
+    if len(cardtypes)==0: stop_execution("You have not selected any cardtype")
 
     your_lang_fullname=langcodes.get(mother_tongue).describe()["language"].lower()
     your_lang=langcodes.get(mother_tongue).to_tag().replace("-","_")
@@ -121,6 +126,7 @@ if __name__=="__main__":
     parser.add_argument("--additional_voices",type=str,default="")
     args = parser.parse_args()
     cardtypes_bools=[x=="True" for x in args.cardtypes_bools.split()] 
-    create_dummy_deck(args.mother_tongue,args.target_lang,args.highlight_color,
+    mother_tongue,target_lang=sanitize_input(args.mother_tongue,args.target_lang)
+    create_dummy_deck(mother_tongue,target_lang,args.highlight_color,
                     cardtypes_bools,args.cardtypes_dir,args.template_name,
                     args.dictionary,args.additional_voices)

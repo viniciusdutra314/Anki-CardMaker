@@ -19,7 +19,8 @@ So, using my programming skills as a computational physics undergraduate, I coul
 
 There are 4 fields that can be filled, but only two of them are mandatory. Let's see how they work with a concrete example in Italian:
 
-![How to Use Anki-CardMaker](images/template_working/how_to_use_it.png)
+<img src="images/template_working/how_to_use_it.png"
+alt="template working" width=500>
 
 - 🔤 **Phrase**: (Io sono un ragazzo)  
   The phrase that you're studying.
@@ -44,11 +45,21 @@ There are 4 fields that can be filled, but only two of them are mandatory. Let's
 
 **Front**: Just the phrase, If there's an unknown word, it will be highlighted with your selected color.
 
-![Passive Card Front](images/template_working/passive_front.png)
+<audio controls>
+  <source src="audios/Io sono un ragazzo.mp3" type="audio/mpeg">
+</audio>
+<img src="images/template_working/passive_front.png" width=400>
 
 **Front + Back**: The translation of the word/phrase with pronunciation.
 
-![Passive Card Front + Back](images/template_working/passive_card.png)
+<audio controls>
+  <source src="audios/Ragazzo.mp3" type="audio/mpeg">
+</audio>
+<img src="images/template_working/passive_card.png" width=400>
+
+
+
+
 
 ### Active Card
 
@@ -95,7 +106,7 @@ Sometimes the meaning of a word/phrase is hard to put into words, but it's easil
 The most reliable way of installing a template on Anki is by importing a deck with cards created using the template. To do that, we're going to run a Google Colab script that will generate the deck for us. Please click this [link](https://colab.research.google.com/github/viniciusdutra314/Anki-CardMaker/blob/main/AnkiCardMaker.ipynb#scrollTo=4PlW-rYmGAWG) and follow the instructions.
 
 <a href="https://colab.research.google.com/github/viniciusdutra314/Anki-CardMaker/blob/main/AnkiCardMaker.ipynb#scrollTo=4PlW-rYmGAWG">
-  <img src="images/colab.jpeg" alt="google_colab_logo" width=300>
+  <img src="images/google_colab/colab.jpeg" alt="google_colab_logo" width=300>
 </a>
 
 An Anki deck called "Anki-CardMaker (test the audio)" will be imported with cards to test if the voices are working as they should. Now, you have imported the template to your Anki. To use it, go to Add and in the upper-left corner, find your template under Type.
