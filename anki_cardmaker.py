@@ -9,7 +9,20 @@ def html_replacing(cardtype: str,config:dict) -> list[str]:
         htmls.append(html)
     return {"Front":htmls[0],"Back":htmls[1]}
 
-def generate_dictionary_link(dictionary,target_lang_fullname,your_lang_fullname)-> str:
+def sanitize_input(mother_tongue :str,target_lang:str,template_name:str) -> tuple[str,str,str]:
+    import langcodes
+    mother_tongue=mother_tongue.strip().replace(" ","_")
+    target_lang=target_lang.strip().replace(" ","_")
+    template_name=template_name.replace("_"," ")
+    assert len(mother_tongue)==5 , "Your language is not on the 4 character format"
+    assert langcodes.get(mother_tongue).is_valid() , "Your language langcode is not a valid code"
+    assert len(target_lang)==5 , "Your translation language is not on the 4 character format"
+    assert langcodes.get(target_lang).is_valid() , "Your translation language langcode is not a valid code"
+    return mother_tongue,target_lang,template_name
+
+
+def generate_dictionary_link(dictionary:str,target_lang_fullname:str,
+                                your_lang_fullname:str)-> str:
     if dictionary=="reverso":
         dictionary_link=f"https://context.reverso.net/translation/"
     if dictionary=="cambridge":
@@ -23,8 +36,8 @@ def create_dummy_deck(mother_tongue :str ,target_lang :str ,
     import langcodes
     import genanki
     import random
-    FIELDS=("🔤 Phrase","🔄 Translated phrase or word",
-                "❓ Unknown word","🗣️ Pronunciation")
+    sanitize_input(mother_tongue,target_lang,template_name)
+
     LINUX_SUPPORT="AwesomeTTS"
     CSS=""".card {
             font-family: arial;
@@ -39,12 +52,15 @@ def create_dummy_deck(mother_tongue :str ,target_lang :str ,
     if cardtypes_bools[0]: cardtypes.append("Passive")
     if cardtypes_bools[1]: cardtypes.append("Active")
     if cardtypes_bools[2]: cardtypes.append("Writing")
+    assert len(cardtypes)!=0 , "You have not selected any cardtype"
+
     your_lang_fullname=langcodes.get(mother_tongue).describe()["language"].lower()
     your_lang=langcodes.get(mother_tongue).to_tag().replace("-","_")
     target_lang_fullname=langcodes.get(target_lang).describe()["language"].lower()
     target_lang=langcodes.get(target_lang).to_tag().replace("-","_")
     
-
+    FIELDS=(f"🔤 Phrase ({target_lang})",f"🔄 Translated phrase or word ({your_lang})",
+                f"❓ Unknown word ({target_lang})",f"🗣️ Pronunciation")
 
     if additional_voices: LINUX_SUPPORT=","+LINUX_SUPPORT
     your_voices=additional_voices+LINUX_SUPPORT
@@ -76,19 +92,21 @@ def create_dummy_deck(mother_tongue :str ,target_lang :str ,
         css=CSS
     )
 
+    
     dummy_deck=genanki.Deck(
         random.randrange(1<<30,1<<31),
-        "Dummy Deck (just to import)"
+        f"{template_name} (test the audio)"
     )
 
     dummy_note=genanki.Note(
         model=note_template,
-        fields=["This is a dummy phrase",
-        "an artificial substitute looking like the real thing",
-        "dummy","/ˈdʌm·i/"]
+        fields=["This is just an example to test the voices",
+        "something that is typical of the group of things that you are talking about",
+        "example"," /ɪɡˈzæm·pəl/"]
     )
     dummy_deck.add_note(dummy_note)
     genanki.Package(dummy_deck).write_to_file(f"{template_name}.apkg")
+
 
 if __name__=="__main__":
     import argparse
@@ -101,7 +119,6 @@ if __name__=="__main__":
     parser.add_argument("--cardtypes_bools",type=str)
     parser.add_argument("--dictionary",type=str,default="reverso")
     parser.add_argument("--additional_voices",type=str,default="")
-
     args = parser.parse_args()
     cardtypes_bools=[x=="True" for x in args.cardtypes_bools.split()] 
     create_dummy_deck(args.mother_tongue,args.target_lang,args.highlight_color,

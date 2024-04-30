@@ -1,13 +1,13 @@
 <span id="phrase"></span>
 
 <script>
-  var word = "{{text:❓ Unknown word}}";
-  var phrase="{{text:🔤 Phrase}}";
+  var word = "{{text:❓ Unknown word (target_lang)}}";
+  var phrase="{{text:🔤 Phrase (target_lang)}}";
   var index=phrase.toLowerCase().search(word.toLowerCase());
   if (index!=-1){
     var displayed_phrase=phrase.slice(0,index);
     displayed_phrase+=`<span style='color: highlight_color;'><strong>`;
-    displayed_phrase+=word;
+      displayed_phrase+=phrase.slice(index,index+word.length);
     displayed_phrase+="</strong></span>";
     displayed_phrase+=phrase.slice(word.length+index,)}
   else {  
@@ -16,4 +16,4 @@
 
 </script>
 
-{{tts target_lang voices=your_voices:🔤 Phrase}}
+{{tts target_lang voices=your_voices:🔤 Phrase (target_lang)}}

@@ -2,24 +2,24 @@
 
 <hr id="answer">
 
-{{#❓ Unknown word}}
-<a href="dictionary_link{{text:❓ Unknown word}}">🔎</a>
+{{#❓ Unknown word (target_lang)}}
+<a href="dictionary_link{{text:❓ Unknown word (target_lang)}}">🔎</a>
 
-<span style="color: highlight_color;"> <strong>{{text:❓ Unknown word}}</strong> </span>=
-{{/❓ Unknown word}} 
+<span style="color: highlight_color;"> <strong>{{text:❓ Unknown word (target_lang)}}</strong> </span>
+{{/❓ Unknown word (target_lang)}} 
 
-{{^❓ Unknown word}}
-<a href="dictionary_link{{text:🔤 Phrase}}">🔎</a>
-{{/❓ Unknown word}}
+{{^❓ Unknown word (target_lang)}}
+<a href="dictionary_link{{text:🔤 Phrase (target_lang)}}">🔎</a>
+{{/❓ Unknown word (target_lang)}}
 
 {{#🗣️ Pronunciation}}
 	({{text:🗣️ Pronunciation}})
 {{/🗣️ Pronunciation}}
+=
+{{🔄 Translated phrase or word (your_lang)}}
 
-{{🔄 Translated phrase or word}}
 
-
-{{#❓ Unknown word}}
-	{{tts target_lang voices=your_voices:❓ Unknown word}}
-{{/❓ Unknown word}}
+{{#❓ Unknown word (target_lang)}}
+	{{tts target_lang voices=your_voices:❓ Unknown word (target_lang)}}
+{{/❓ Unknown word (target_lang)}}
 
