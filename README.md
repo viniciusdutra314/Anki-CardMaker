@@ -45,20 +45,11 @@ alt="template working" width=500>
 
 **Front**: Just the phrase, If there's an unknown word, it will be highlighted with your selected color.
 
-<audio controls>
-  <source src="audios/Io sono un ragazzo.mp3" type="audio/mpeg">
-</audio>
 <img src="images/template_working/passive_front.png" width=400>
 
 **Front + Back**: The translation of the word/phrase with pronunciation.
 
-<audio controls>
-  <source src="audios/Ragazzo.mp3" type="audio/mpeg">
-</audio>
 <img src="images/template_working/passive_card.png" width=400>
-
-
-
 
 
 ### Active Card
@@ -69,11 +60,11 @@ The active card is the exact opposite of the passive card. It will ask you to sa
 
 **Front**:
 
-![Active Card Front](images/template_working/active_front.png)
+<img src="images/template_working/active_front.png" width=400>
 
 **Front + Back**:
 
-![Active Card Front + Back](images/template_working/active_back.png)
+<img src="images/template_working/active_back.png" width=400>
 
 ### Writing
 
@@ -84,22 +75,26 @@ An audio of the phrase will play. If you have an unknown word, a separate audio 
 You should type the phrase or the word, depending on what you want to learn. An automatic checker will compare what you type with the correct spelling.
 
 - *Typing the whole phrase*
-  ![Typing the whole phrase](images/template_working/writing_back.png)
+
+
+  <img src="images/template_working/writing_back.png" width=400>
+
 
 - *Typing just the unknown word*
-  ![Typing just the unknown word](images/template_working/writing_back_oneword.png)
+
+  <img src="images/template_working/writing_back_oneword.png" width=400>
 
 ### Word Matching
 One interesting feature is that if you accidentally commit a typo while typing an unknown word/phrase, the template has a little JavaScript code to check if the two fields are compatible. If not, it will insert an error message on the card. Then you can edit and type correctly.
 
-![Word Matching](images/template_working/not_matching_word.png)
+<img src="images/template_working/not_matching_word.png" width=400>
 
 
 ### Image Support
 
 Sometimes the meaning of a word/phrase is hard to put into words, but it's easily conveyed using images. This template also supports images in the 🔄 Translated phrase or word field.
 
-<img src="images/template_working/image_support.png">
+<img src="images/template_working/image_support.png" width=400>
 
 # Installation
 
