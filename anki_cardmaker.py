@@ -100,7 +100,7 @@ def create_dummy_deck(mother_tongue :str ,target_lang :str ,
     
     dummy_deck=genanki.Deck(
         random.randrange(1<<30,1<<31),
-        f"{template_name} (test the audio)"
+        f"{template_name} (test the audio, delete it after have tested)"
     )
 
     dummy_note=genanki.Note(
